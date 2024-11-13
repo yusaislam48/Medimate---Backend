@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-const PORT = 5005;
+// const PORT = 5005;
+const PORT = process.env.PORT || 5005;
 
 // Middleware
 app.use(cors());
@@ -294,6 +295,9 @@ app.post('/api/slots', (req, res) => {
   
 
 // Start the server
-app.listen(PORT, () => {
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
